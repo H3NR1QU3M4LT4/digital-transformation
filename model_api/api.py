@@ -12,34 +12,6 @@ from flask_cors import CORS
 PATH_MODEL_WINE_QUALITY = "models/wine_quality_model.sav"
 PATH_MODEL_VINES = "models/vines_model.sav"
 
-mocked_data_wine_quality = (
-    11.6,
-    0.53,
-    0.66,
-    3.65,
-    0.121,
-    6.0,
-    14.0,
-    0.9978,
-    3.05,
-    0.74,
-    11.5,
-)
-
-mocked_data_vine = (
-    26.0,
-    87.250000,
-    0.300,
-    0.316667,
-    9.762500,
-    7.212500,
-    121.875000,
-    60.0,
-    5.16,
-    0.58,
-    12,
-)
-
 app = Flask(__name__)
 app.config["DEBUG"] = True
 CORS(app)
@@ -47,11 +19,9 @@ CORS(app)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
-
 @app.route("/", methods=["GET"])
 def success():
     return "welcome"
-
 
 @app.route("/predict_wine_quality", methods=["GET", "POST"])
 def predict_wine_quality():
@@ -74,7 +44,6 @@ def predict_wine_quality():
     elif request.method == "GET":
         return "Wine Quality Predictions!"
 
-
 @app.route("/predict_vines_quality", methods=["GET", "POST"])
 def predict_vines_quality():
     if request.method == "POST":
@@ -94,7 +63,6 @@ def predict_vines_quality():
 
     elif request.method == "GET":
         return "Vines Quality Predictions!"
-
 
 if __name__ == "__main__":
     HOST = os.environ.get("SERVER_HOST", "localhost")
