@@ -4,10 +4,12 @@ It contains the definition of routes and views for the application.
 """
 
 import os
+import random
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from predicitons import predicitons
+from sensors_records import csv_to_json
 
 PATH_MODEL_WINE_QUALITY = "models/wine_quality_model.sav"
 PATH_MODEL_VINES = "models/vines_model.sav"
@@ -19,10 +21,22 @@ CORS(app)
 # Make the WSGI interface available at the top level so wfastcgi can get it.
 wsgi_app = app.wsgi_app
 
+vines_dataset_json, wine_quality_dataset = csv_to_json()
+
 
 @app.route("/", methods=["GET"])
 def success():
     return "welcome"
+
+
+@app.route("/get_sensor_wine_quality_records", methods=["GET"])
+def get_sensor_wine_quality_records():
+    return jsonify(random.choices(wine_quality_dataset, k=3))
+
+
+@app.route("/get_sensor_vines_records", methods=["GET"])
+def get_sensor_vines_records():
+    return jsonify(random.choices(vines_dataset_json, k=3))
 
 
 @app.route("/predict_wine_quality", methods=["GET", "POST"])
