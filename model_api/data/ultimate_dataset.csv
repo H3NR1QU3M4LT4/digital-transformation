@@ -1,4 +1,4 @@
-Air Temperature,Humidity,Rain Intensity,Interval Rain,Total Rain,Wind Speed,Solar Radiation,sulfur_solo,pH_solo,sulphates_solo,quality,review,vine_zones
+air_temperature,humidity,rain_intensity,interval_rain,total_rain,wind_speed,solar_radiation,sulfur_solo,ph_solo,sulphates_solo,quality,review,vine_zones
 21.0,66.84,0.0,0.192,5.356,1.3559999999999999,251.36,34.0,5.51,0.56,5,3.0,10.0
 19.0,67.29166666666667,0.0,0.10000000000000002,6.608333333333333,1.4333333333333333,159.95833333333334,67.0,5.2,0.68,5,3.0,10.0
 16.0,84.41666666666667,0.27499999999999997,0.4583333333333333,9.883333333333335,3.4791666666666665,34.708333333333336,54.0,5.26,0.65,5,3.0,8.0
