@@ -18,6 +18,8 @@ def csv_to_json():
         data.append(pd.DataFrame(data_store))
 
     vines, wine = data
+    vines = vines.drop(columns=['quality', 'review'])
+    wine = wine.drop(columns=['quality'])
     vines_dataset_json = vines.to_dict(orient="records")
     wine_quality_dataset = wine.to_dict(orient="records")
 

@@ -18,6 +18,6 @@ def predicitons(path_model, data):
     confidence = max(list(class_probabilities[0]))
         
     aux_dict['prediction'] = int(prediction[0])
-    aux_dict['confidence'] = confidence
+    aux_dict['confidence'] = int(confidence * 100)
     
     return aux_dict

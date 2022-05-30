@@ -38,13 +38,12 @@ def get_sensor_vines_records():
 @app.route("/predict_wine_quality", methods=["GET", "POST"])
 def predict_wine_quality():
     if request.method == "POST":
-        data = request.form.to_dict()
+        data = request.json
 
         # fixed_acidity 	volatile_acidity 	citric_acid 	residual_sugar 	chlorides 	free_sulfur_dioxide 	total_sulfur_dioxide 	density pH 	sulphates 	alcohol
         aux_dict = predicitons(PATH_MODEL_WINE_QUALITY, data)
-
         return jsonify(aux_dict)
-
+        
     elif request.method == "GET":
         return "Wine Quality Predictions!"
     
@@ -63,7 +62,7 @@ def simnple_post():
 @app.route("/predict_vines_quality", methods=["GET", "POST"])
 def predict_vines_quality():
     if request.method == "POST":
-        data = request.form.to_dict()
+        data = request.json
         # temperatura, humidade, intensidade_chuva, intervalo_chuva, total_chuva, velocidade_vento, radiação_solar, sulfur_solo, ph_solo, sulphates_solo, vine_zones
         aux_dict = predicitons(PATH_MODEL_VINES, data)
 
