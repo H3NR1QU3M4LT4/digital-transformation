@@ -46,17 +46,6 @@ def predict_wine_quality():
         
     elif request.method == "GET":
         return "Wine Quality Predictions!"
-    
-@app.route("/simple_post", methods=["GET", "POST"])
-@cross_origin()
-def simnple_post():
-    if request.method == "POST":
-        data = request.form['Name']
-        print("data", data)
-        return data
-
-    elif request.method == "GET":
-        return "simple post"
 
 
 @app.route("/predict_vines_quality", methods=["GET", "POST"])
